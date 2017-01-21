@@ -1,0 +1,71 @@
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="navbar-brand brandLogo">Github Search 
+                <span class="glyphicon glyphicon-search brandIcon"></span>
+            </span>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="queryContainer">
+        <h2>Search Github Profiles</h2>
+        <p class="lead">Enter a username to fetch users profile info and repos</p>
+        <input type="text" id="queryUser" class="form-control" placeholder="Github Username..." [(ngModel)]="username" (keyup)="query()">
+    </div>
+    <br>
+    <div id="profile" *ngIf="user && !error">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" *ngIf="user.name != null">{{user.name}}</h3>
+                <h3 class="panel-title" *ngIf="user.name == null">{{username}}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-9">
+                        <span class="label label-default">Public Repos: {{user.public_repos}}</span>
+                        <span class="label label-primary">Public Gists: {{user.public_gists}}</span>
+                        <span class="label label-success">Followers: {{user.followers}}</span>
+                        <span class="label label-info">Following: {{user.following}}</span>
+                        <br><br>
+                        <ul class="list-group">
+                            <li class="list-group-item">Company: {{user.company}}</li>
+                            <li class="list-group-item">Website/blog: {{user.blog}}</li>
+                            <li class="list-group-item">Location: {{user.location}}</li>
+                            <li class="list-group-item">Member Since: {{user.created_at}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <img class="thumbnail profile" src="{{user.avatar_url}}" alt="Profile pic">
+                        <a class="btn btn-primary btn-block" href="{{user.html_url}}" target="_blank">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="repos" *ngIf="repos.length > 0">
+        <h3 class="page-header">Latest Repositories</h3>
+        <div class="well" *ngFor="let repo of repos">
+            <div class="row">
+                <div class="col-md-7">
+                    <strong>{{repo.name}}</strong>: {{repo.description}}
+                </div>
+                <div class="col-md-3">
+                    <br>
+                    <span class="label label-default">Forks: {{repo.forks_count}}</span>
+                    <span class="label label-primary">Watchers: {{repo.watchers_count}}</span>
+                    <span class="label label-success">Stars: {{repo.stargazers_count}}</span>
+                </div>
+                <div class="col-md-2 pull-right">
+                    <a href="{{repo.html_url}}" target="_blank" class="btn btn-primary">Repo Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
