@@ -1,13 +1,7 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "removeComments": false,
-        "noImplicitAny": true,
-        "suppressImplicitAnyIndexErrors": true
-    }
+	"globalDependencies": {
+		"core-js"		: "registry:dt/core-js#0.0.0+20160317120654",
+		"jasmine"		: "registry:dt/jasmine#2.2.0+20160505161446",
+		"node"			: "registry:dt/node#6.0.0+20160613154055"
+	}
 }
