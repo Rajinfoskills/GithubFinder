@@ -22,9 +22,9 @@
     <br>
     <div id="profile" *ngIf="user && !error">
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title" *ngIf="user.name != null">{{user.name}}</h3>
-                <h3 class="panel-title" *ngIf="user.name == null">{{username}}</h3>
+            <div class="panel-heading capitalize">
+                <h3 class="panel-title" *ngIf="user.name != null"><b>{{user.name}}</b></h3>
+                <h3 class="panel-title" *ngIf="user.name == null"><b>{{username}}</b></h3>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -49,12 +49,12 @@
             </div>
         </div>
     </div>
-    <div id="repos" *ngIf="repos.length > 0">
-        <h3 class="page-header">Latest Repositories</h3>
+    <div id="repos" *ngIf="repos.length > 0 && username != '' && !error">
+        <h3 class="page-header capitalize"><b>Latest Repositories</b></h3>
         <div class="well" *ngFor="let repo of repos">
             <div class="row">
                 <div class="col-md-7">
-                    <strong>{{repo.name}}</strong>: {{repo.description}}
+                    <strong class="capitalize">{{repo.name}} : </strong> {{repo.description}}
                 </div>
                 <div class="col-md-3">
                     <br>

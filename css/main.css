@@ -13,6 +13,10 @@
     font-size: initial !important;
 }
 
+.capitalize {
+    text-transform: uppercase;
+}
+
 .label {
     font-weight: 600 !important;
 }
